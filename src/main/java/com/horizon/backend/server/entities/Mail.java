@@ -13,15 +13,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 @Entity
-/*@Data 
-@AllArgsConstructor
-@NoArgsConstructor*/
+@Data 
+//@AllArgsConstructor
+@NoArgsConstructor
 public class Mail{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -40,14 +43,17 @@ public class Mail{
 	private City destinationCity;
 	
 	private String photo;
+	private String status;
 	
-	/**@OneToMany(mappedBy="mail")
-	private Collection<Payment> payments;*/
+	@OneToMany(mappedBy="mail")
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private Collection<Payment> payments;
+	
 	@Temporal(TemporalType.DATE)
 	private Date d;
 
-	public Mail(String ref, String description, Client sender, Client receiver, City sourceCity,
-			City destinationCity, String photo, Date d) {
+	public Mail(String ref, String description, Client sender, Client receiver, City sourceCity, City destinationCity,
+			String photo,String status, Date d) {
 		super();
 		this.ref = ref;
 		this.description = description;
@@ -57,85 +63,8 @@ public class Mail{
 		this.destinationCity = destinationCity;
 		this.photo = photo;
 		this.d = d;
+		this.status=status;
 	}
 
-	public Mail() {
-		super();
-	}
-
-	public Long getId() {
-		return Id;
-	}
-
-	public void setId(Long id) {
-		Id = id;
-	}
-
-	public String getRef() {
-		return ref;
-	}
-
-	public void setRef(String ref) {
-		this.ref = ref;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Client getSender() {
-		return sender;
-	}
-
-	public void setSender(Client sender) {
-		this.sender = sender;
-	}
-
-	public Client getReceiver() {
-		return receiver;
-	}
-
-	public void setReceiver(Client receiver) {
-		this.receiver = receiver;
-	}
-
-	public City getSourceCity() {
-		return sourceCity;
-	}
-
-	public void setSourceCity(City sourceCity) {
-		this.sourceCity = sourceCity;
-	}
-
-	public City getDestinationCity() {
-		return destinationCity;
-	}
-
-	public void setDestinationCity(City destinationCity) {
-		this.destinationCity = destinationCity;
-	}
-
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-
-	public Date getD() {
-		return d;
-	}
-
-	public void setD(Date d) {
-		this.d = d;
-	}
-	
-	
-	
 
 }

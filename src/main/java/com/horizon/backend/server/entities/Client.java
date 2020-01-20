@@ -30,6 +30,9 @@ private Collection<Mail> MailsSenders;
 @OneToMany(mappedBy="receiver")
 private Collection<Mail> MailsReceivers;
 
+@OneToMany(mappedBy="client")
+private Collection<Payment> Payments;
+
 public Client(String name, String contact, Collection<Mail> mailsSenders, Collection<Mail> mailsReceivers) {
 	super();
 	this.name = name;

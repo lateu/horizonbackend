@@ -75,9 +75,9 @@ public class BackendInitImpl implements BackendInitData{
 		Client cl2=clientrepo.findByName("TOTO");
 		Client cl3=clientrepo.findByName("TITI");
 
-		mailrep.save(new Mail("R0","CNI",cl2,cl1,ct1,ct2,null,new Date()));
-		mailrep.save(new Mail("R1","BC",cl1,cl2,ct2,ct1,null,new Date()));
-		mailrep.save(new Mail("R2","Licence",cl2,cl1,ct1,ct2,null,new Date()));
+		mailrep.save(new Mail("R0","CNI",cl2,cl1,ct1,ct2,"paquet.jpg","available",new Date()));
+		mailrep.save(new Mail("R1","BC",cl1,cl2,ct2,ct1,"image1.png","not available",new Date()));
+		mailrep.save(new Mail("R2","Licence",cl2,cl1,ct1,ct2,"paquet.jpg","available",new Date()));
 		
 	}
 

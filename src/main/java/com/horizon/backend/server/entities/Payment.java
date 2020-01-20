@@ -3,6 +3,9 @@ package com.horizon.backend.server.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -11,16 +14,21 @@ import lombok.NoArgsConstructor;
 
 
 
-/*@Entity
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Payment {
-	private String montant;
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long Id;
 	@ManyToOne
 	private Mail mail;
+	
+	@ManyToOne
+	private Client client;
+	
+	private float amount;
 	private Date d;
 
 }
-*/
