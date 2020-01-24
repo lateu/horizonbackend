@@ -33,8 +33,10 @@ public class Mail{
 	@Column(nullable=false)
 	private String description;
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Client sender;
 	@ManyToOne	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Client receiver;
 	
 	@ManyToOne

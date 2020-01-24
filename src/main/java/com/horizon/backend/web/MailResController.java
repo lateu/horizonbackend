@@ -60,7 +60,7 @@ public class MailResController {
 		
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+
 	@DeleteMapping(path="/mail/delete/{id}")
 	ResponseEntity<Void> deleteById(@PathVariable(name="id")   Long id) {
 		Mail m=mailRepository.findById(id).get();
@@ -68,8 +68,17 @@ public class MailResController {
 		mailRepository.delete(m);
 		return ResponseEntity.noContent().build();
 		}else {
-			return ResponseEntity.notFound().build();
-		}
+			return   ResponseEntity.notFound().build();
+		}		
+	
+	}
+	
+	@GetMapping(path="/findMailByRef/{ref}")
+	Mail findMailByRef(@PathVariable(name="ref")   String ref) {
+		Mail m=mailRepository.findByRef(ref);
+		//System.out.println("---------------");
+		//System.out.println(m.getDescription());
+		return m;
 			
 	
 	}
