@@ -67,9 +67,10 @@ public class BackendInitImpl implements BackendInitData{
 		// TODO Auto-generated method stub
 		List<City> cities=cityrepository.findAll();
 		List<Client>clients=clientrepo.findAll();
-		City ct1=cityrepository.findByName("Maroua");
-		City ct2=cityrepository.findByName("Garoua");
-		City ct3=cityrepository.findByName("Yaounde");
+		City ct1=cityrepository.findByName("SENEGAL");
+		City ct2=cityrepository.findByName("GUINNEA");
+		City ct3=cityrepository.findByName("GABON");
+		City ct4=cityrepository.findByName("TEXAS");
 		
 		Client cl1=clientrepo.findByName("TATA");
 		Client cl2=clientrepo.findByName("TOTO");
