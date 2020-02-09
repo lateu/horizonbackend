@@ -45,7 +45,7 @@ public class BackendInitImpl implements BackendInitData{
 	@Override
 	public void InitCity() {
 		// TODO Auto-generated method stub
-		Stream.of("Maroua","Garoua","Yaounde","Bafoussam","Malabo").forEach(
+		Stream.of("Canada","Garoua","Ohio","Texas","Malabo").forEach(
 				name->{
 					City city=new City();
 					city.setName(name);
@@ -67,8 +67,8 @@ public class BackendInitImpl implements BackendInitData{
 		// TODO Auto-generated method stub
 		List<City> cities=cityrepository.findAll();
 		List<Client>clients=clientrepo.findAll();
-		City ct1=cityrepository.findByName("SENEGAL");
-		City ct2=cityrepository.findByName("GUINNEA");
+		City ct1=cityrepository.findByName("CANADA");
+		City ct2=cityrepository.findByName("OHIO");
 		City ct3=cityrepository.findByName("GABON");
 		City ct4=cityrepository.findByName("TEXAS");
 		
