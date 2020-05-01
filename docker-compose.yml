@@ -1,0 +1,27 @@
+version: "3"
+services:
+    horizonbackend:
+      build: .
+      container_name: horizonbackend
+      environment:
+        SPRING_DATASOURCE_URL: jdbc:postgresql://db_horizon:5432/horizondb
+      ports:
+        - 8000:8080
+      restart: always
+      depends_on:
+        - db
+    db:
+      image: postgres
+      container_name: db_horizon
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=07v120/
+        - POSTGRES_DB=horizon
+        - PGDATA=/var/lib/postgresql/data/pgdata
+      ports:
+        - 5431:5432
+      volumes:
+        - pgdata:/var/lib/postgresql/data
+      restart: always
+volumes:
+    pgdata:
