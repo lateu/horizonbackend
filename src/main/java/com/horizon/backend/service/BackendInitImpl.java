@@ -45,7 +45,7 @@ public class BackendInitImpl implements BackendInitData{
 	@Override
 	public void InitCity() {
 		// TODO Auto-generated method stub
-		Stream.of("Canada","Garoua","Ohio","Texas","Malabo").forEach(
+		Stream.of("Canada0","Garoua0","Ohio0","Texas0","Malabo0").forEach(
 				name->{
 					City city=new City();
 					city.setName(name);
